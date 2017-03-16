@@ -1,6 +1,12 @@
 # pi_nrf24l01_rxtx_mqtt
-pi code to recieve radio signals from nrf24l01 radios and transmitt these messages to mqtt and to receive mqtt message 
-and transmit these mqtt message to the specifc device via the nrf24l01 radio.
+pi code to recieve radio signals from nrf24l01 radios and transmit these messages to mqtt 
+9mosquitto then openhab)and to subscribe to mqtt messages 
+and transmit these mqtt message to the specifc device via the nrf24l01 radio. The Radios receive temperature and humidity data and 
+parse the data into mqtt message which get sent in a primative fashion using the command line. 
+
+An interupt is setup for the mqtt subscription, which when fired, turns the Pi into a transmitor which then transmits the payload and then switches back to listerning.
+
+There is lots to do here to improve the code and to allow it to contorl more devices and remove hard coding, but it works so worth commiting.
 
 It uses two main libraries, the TMRh20 nrf24 library  https://github.com/TMRh20/RF24 for the radio and the 
 paho library for MQTT http://www.eclipse.org/paho/files/mqttdoc/Cclient/
